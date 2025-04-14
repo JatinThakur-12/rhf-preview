@@ -4,10 +4,11 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import { dts } from 'rollup-plugin-dts';
+import typescript from '@rollup/plugin-typescript';
 
 export default [
     {
-        input: "src/index.ts",
+        input: "src/index.tsx",
         output: [
             {
                 file: packageJson.main,
@@ -33,7 +34,7 @@ export default [
     },
     // for typescript types files 
     {
-        input: 'src/index.ts',
+        input: 'src/index.tsx',
         output: {
             file: packageJson.types
         }, plugins: [
