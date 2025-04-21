@@ -8,13 +8,15 @@ const RHFPreview = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
     const values = watch();
+
     return (
         <>
             <div>Running RHF check</div>
             {createPortal(
-                <div style={{ position: 'absolute', bottom: '0', left: '0' }}><button onClick={() => { setIsDrawerOpen(prev => !prev) }}>
-                    Open Drawer
-                </button>
+                <div style={{ position: 'absolute', bottom: '0', left: '0' }}>
+                    <button onClick={() => { setIsDrawerOpen(prev => !prev) }}>
+                        Open
+                    </button>
                 </div >,
                 document.body
             )
