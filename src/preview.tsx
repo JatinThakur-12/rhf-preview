@@ -1,6 +1,7 @@
 import Heading from './components/heading';
 import FormState from './components/form-state';
 import FormValues from './components/form-values';
+import ErrorFields from './components/error-fields';
 
 const Preview = () => {
     return (
@@ -19,6 +20,7 @@ const Preview = () => {
             <Heading />
             <FormState />
             <FormValues />
+            <ErrorFields />
         </div>
     )
 }
