@@ -12,7 +12,7 @@ function FormState() {
                     return null;
                 }
                 return (<div key={key} style={{ display: 'flex', flexDirection: 'row', gap: '4px' }}>
-                    <span>{JSON.stringify(key)}</span>
+                    <span>{key}</span>
                     <span>:</span>
                     <span>{JSON.stringify(formState[`${typedKey}`])}</span>
                 </div>)
