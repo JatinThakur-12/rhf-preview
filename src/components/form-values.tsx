@@ -4,14 +4,18 @@ function FormValues() {
     const { watch } = useFormContext();
     const values = watch();
     return (
-        <div>
-            <div>Values</div>
+        <div className={"typeContainer"}>
+            <div className={"typeContainer__title"}>Values</div>
             {Object.keys(values).map((key) => {
                 return (
-                    <div key={key} style={{ display: 'flex', flexDirection: 'row', gap: '4px' }}>
-                        <span>{JSON.stringify(key)}</span>
-                        <span>:</span>
-                        <span>{JSON.stringify(values[key])}</span>
+                    <div key={key} className='typeContainer__row' >
+                        <div className='typeContainer__label'>
+                            <span>{key}</span>
+                            <span>:</span>
+                        </div>
+                        <div className='typeContainer__value'>
+                            <span>{JSON.stringify(values[key])}</span>
+                        </div>
                     </div>
                 )
             })}

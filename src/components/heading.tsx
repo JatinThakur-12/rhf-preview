@@ -1,6 +1,6 @@
 function Heading() {
     return (
-        <div>RHF Preview</div>
+        <div className='heading'>RHF Preview</div>
     )
 }
 

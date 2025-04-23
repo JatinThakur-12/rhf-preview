@@ -1,24 +1,32 @@
 import { useFormContext } from 'react-hook-form';
 
-const EXCLUDED_STATE = ['errors', 'validatingFields', 'touchedFields', 'dirtyFields', 'defaultValues'];
+const EXCLUDED_STATE = ['errors', 'validatingFields', 'touchedFields', 'dirtyFields', 'defaultValues', 'values'];
 function FormState() {
     const { formState } = useFormContext();
     return (
-        <>
-            <div>FormState</div>
+        <div className='typeContainer'>
+            <div className='typeContainer__title'>Form State</div>
             {Object.getOwnPropertyNames(formState).sort().map((key) => {
-                const typedKey = key as keyof typeof formState;
+                let typedKey = key as keyof typeof formState;
+                typedKey === 'name' as keyof typeof formState ? 'lastModified' : typedKey;
+
                 if (EXCLUDED_STATE.includes(key)) {
                     return null;
                 }
-                return (<div key={key} style={{ display: 'flex', flexDirection: 'row', gap: '4px' }}>
-                    <span>{key}</span>
-                    <span>:</span>
-                    <span>{JSON.stringify(formState[`${typedKey}`])}</span>
-                </div>)
+
+                return (
+                    <div key={typedKey} className='typeContainer__row' >
+                        <div className='typeContainer__label'>
+                            <span>{typedKey}</span>
+                            <span>:</span>
+                        </div>
+                        <div className="typeContainer__value">
+                            <span>{JSON.stringify(formState[`${typedKey}`])}</span>
+                        </div>
+                    </div>)
             })
             }
-        </>
+        </div>
     )
 }
 

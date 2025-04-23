@@ -3,19 +3,23 @@ import { useFormContext } from 'react-hook-form';
 
 function ErrorFields() {
     const { formState } = useFormContext();
-
-    console.log('FormState Error', formState.errors);
+    const errorKeys = Object.keys(formState?.errors);
     return (
-        <div>
-            <div>Errors</div>
+        <div className='typeContainer'>
+            <div className='typeContainer__title'>Errors</div>
             {
-                Object.keys(formState.errors).map((key) =>
-                    <div key={key} style={{ display: 'flex', flexDirection: 'row', gap: '4px' }}>
-                        <span>{key}</span>
-                        <span>:</span>
-                        <span>{JSON.stringify(formState.errors[key]?.message)}</span>
+                errorKeys?.length > 0 ? errorKeys?.map((key) =>
+                    <div key={key} className='typeContainer__row' >
+                        <div className='typeContainer__label'>
+                            <span>{key}</span>
+                            <span>:</span>
+                        </div>
+                        <div className='typeContainer__value'>
+                            <span>{JSON.stringify(formState.errors[key]?.message)}</span>
+                        </div>
                     </div>
-                )
+                ) : <div className="typeContainer__row">No errors</div>
+
             }
         </div>
     )

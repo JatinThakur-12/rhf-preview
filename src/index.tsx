@@ -5,7 +5,7 @@ import Preview from "./preview";
 
 const RHFPreview = () => {
     const { watch, formState } = useFormContext();
-    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true);
 
     const values = watch();
 
