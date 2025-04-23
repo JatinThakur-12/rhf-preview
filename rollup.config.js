@@ -5,6 +5,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import { dts } from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss';
+
 
 export default [
     {
@@ -28,7 +30,8 @@ export default [
             typescript({
                 tsconfig: "./tsconfig.json",
             }),
-            terser()
+            terser(),
+            postcss()
         ],
         external: ['react', 'react-dom']
     },

@@ -1,0 +1,59 @@
+.mainContainerStyles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 290px;
+    max-width: 290px;
+    height: calc(100dvh - 2px);
+    border: 1px solid black;
+    padding: 6px 8px;
+    z-index: 4000;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    background-color: #252525;
+    font-family: verdana, sans-serif;
+}
+
+.heading {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.typeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.typeContainer__title {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+    background-color: #696969;
+}
+
+.typeContainer__row {
+    padding: 0 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.typeContainer__label {
+    display: flex;
+    flex-direction: row;
+}
+
+.typeContainer__value {
+    flex-grow: 1;
+    text-align: end;
+    white-space: pre-wrap;
+    /* preserves formatting but allows wrapping */
+    word-break: break-word;
+    /* breaks long strings like tokens/emails */
+}
