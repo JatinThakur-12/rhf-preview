@@ -12,6 +12,10 @@
   "keywords": [
     "rhf-preview"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JatinThakur-12/rhf-preview.git"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
