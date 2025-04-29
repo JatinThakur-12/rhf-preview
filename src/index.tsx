@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { useFormContext } from "react-hook-form";
 import Preview from "./preview";
 
 const RHFPreview = () => {
-    const { watch, formState } = useFormContext();
-    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true);
 
-    const values = watch();
+    const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true);
 
     return (
         <>
             <div>Running RHF check</div>
             {createPortal(
-                <div style={{ position: 'absolute', bottom: '0', left: '0' }}>
+                <div style={{ position: 'absolute', bottom: '10px', left: '10px', zIndex: 9999 }}>
                     <button onClick={() => { setIsDrawerOpen(prev => !prev) }}>
                         Open
                     </button>
@@ -21,7 +18,6 @@ const RHFPreview = () => {
                 document.body
             )
             }
-            {/* {createPortal("Hi Jatin", document.body)} */}
             {isDrawerOpen && createPortal(<Preview />, document.body)}
         </>
     );
