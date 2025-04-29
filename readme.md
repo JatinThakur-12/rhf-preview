@@ -4,11 +4,11 @@ A small utility for viewing `react-hook-form` values in a quick and easy way. Th
 
 ## Features
 
-- **Real-time Form Monitoring**: Displays form values, errors, and state as they change.
-- **React Hook Form Integration**: Seamlessly integrates with `react-hook-form` for easy setup.
-- **Portal-based UI**: Renders a floating preview panel using React portals for flexible positioning.
-- **Customizable Styling**: Comes with CSS classes for easy styling customization.
-- **TypeScript Support**: Fully typed with TypeScript for a robust development experience.
+-   **Real-time Form Monitoring**: Displays form values, errors, and state as they change.
+-   **React Hook Form Integration**: Seamlessly integrates with `react-hook-form` for easy setup.
+-   **Portal-based UI**: Renders a floating preview panel using React portals for flexible positioning.
+-   **Customizable Styling**: Comes with CSS classes for easy styling customization.
+-   **TypeScript Support**: Fully typed with TypeScript for a robust development experience.
 
 ## Installation
 
@@ -33,27 +33,27 @@ yarn add rhf-preview
 ### Example
 
 ```jsx
-import { FormProvider, useForm } from 'react-hook-form';
-import RHFPreview from 'rhf-preview';
+import { FormProvider, useForm } from "react-hook-form";
+import RHFPreview from "rhf-preview";
 
 function MyForm() {
-  const methods = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-    },
-  });
+    const methods = useForm({
+        defaultValues: {
+            name: "",
+            email: "",
+        },
+    });
 
-  return (
-    <FormProvider {...methods}>
-      <form>
-        <input {...methods.register('name')} placeholder="Name" />
-        <input {...methods.register('email')} placeholder="Email" />
-        <button type="submit">Submit</button>
-      </form>
-      <RHFPreview />
-    </FormProvider>
-  );
+    return (
+        <FormProvider {...methods}>
+            <form>
+                <input {...methods.register("name")} placeholder="Name" />
+                <input {...methods.register("email")} placeholder="Email" />
+                <button type="submit">Submit</button>
+            </form>
+            <RHFPreview />
+        </FormProvider>
+    );
 }
 
 export default MyForm;
@@ -61,14 +61,14 @@ export default MyForm;
 
 ### How It Works
 
-- The `RHFPreview` component uses `useFormContext` from `react-hook-form` to access form state and values.
-- A button (rendered via a React portal) toggles the visibility of the preview panel.
-- The preview panel displays:
-  - **Form Values**: All current form values.
-  - **Form State**: Key form state properties (excluding certain fields like errors and touched fields).
-  - **Errors**: Any validation errors for form fields.
-  - **Dirty Fields**: Fields that have been modified.
-  - **Touched Fields**: Fields that have been interacted with.
+-   The `RHFPreview` component uses `useFormContext` from `react-hook-form` to access form state and values.
+-   A button (rendered via a React portal) toggles the visibility of the preview panel.
+-   The preview panel displays:
+    -   **Form Values**: All current form values.
+    -   **Form State**: Key form state properties (excluding certain fields like errors and touched fields).
+    -   **Errors**: Any validation errors for form fields.
+    -   **Dirty Fields**: Fields that have been modified.
+    -   **Touched Fields**: Fields that have been interacted with.
 
 ## Props
 
@@ -78,13 +78,13 @@ The `RHFPreview` component does not accept any props directly, as it relies on t
 
 The preview panel uses the following CSS classes for styling:
 
-- `mainContainerStyles`: The main container for the preview panel.
-- `heading`: The title of the preview panel.
-- `typeContainer`: Containers for each section (e.g., Form Values, Errors).
-- `typeContainer__title`: Section titles.
-- `typeContainer__row`: Rows within each section.
-- `typeContainer__label`: Labels for field names.
-- `typeContainer__value`: Values for fields.
+-   `mainContainerStyles`: The main container for the preview panel.
+-   `heading`: The title of the preview panel.
+-   `typeContainer`: Containers for each section (e.g., Form Values, Errors).
+-   `typeContainer__title`: Section titles.
+-   `typeContainer__row`: Rows within each section.
+-   `typeContainer__label`: Labels for field names.
+-   `typeContainer__value`: Values for fields.
 
 You can override these styles by providing your own CSS. The styles are defined in `global.css` within the package.
 
@@ -95,7 +95,7 @@ To contribute or modify the library:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/JatinThakur-12/rhf-preview.git
 ```
 
 2. Install dependencies:
@@ -112,31 +112,31 @@ npm run rollup
 
 ### Scripts
 
-- `npm run rollup`: Builds the library using Rollup, generating CommonJS, ES modules, and TypeScript declaration files.
-- `npm test`: Placeholder for tests (not yet implemented).
+-   `npm run rollup`: Builds the library using Rollup, generating CommonJS, ES modules, and TypeScript declaration files.
+-   `npm test`: Placeholder for tests (not yet implemented).
 
 ### Project Structure
 
-- `src/index.tsx`: Entry point for the `RHFPreview` component.
-- `src/preview.tsx`: Main preview panel component.
-- `src/components/`: Contains components for displaying form values, errors, state, etc.
-- `src/global.css`: Default styles for the preview panel.
-- `rollup.config.js`: Rollup configuration for building the library.
-- `tsconfig.json`: TypeScript configuration.
+-   `src/index.tsx`: Entry point for the `RHFPreview` component.
+-   `src/preview.tsx`: Main preview panel component.
+-   `src/components/`: Contains components for displaying form values, errors, state, etc.
+-   `src/global.css`: Default styles for the preview panel.
+-   `rollup.config.js`: Rollup configuration for building the library.
+-   `tsconfig.json`: TypeScript configuration.
 
 ## Dependencies
 
 ### Peer Dependencies
 
-- `react`: ^18.0.0 || ^19.0.0
-- `react-dom`: ^18.0.0 || ^19.0.0
-- `react-hook-form`: ^7.0.0
+-   `react`: ^18.0.0 || ^19.0.0
+-   `react-dom`: ^18.0.0 || ^19.0.0
+-   `react-hook-form`: ^7.0.0
 
 ### Dev Dependencies
 
-- Rollup plugins for bundling and TypeScript support.
-- TypeScript for type checking.
-- PostCSS for CSS processing.
+-   Rollup plugins for bundling and TypeScript support.
+-   TypeScript for type checking.
+-   PostCSS for CSS processing.
 
 ## License
 
