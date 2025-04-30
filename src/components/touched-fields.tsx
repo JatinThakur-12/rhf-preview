@@ -17,7 +17,7 @@ function TouchedFields() {
                 open={isDrawerOpen}
             />
             <div className="typeContainer__row typeContainer__value">
-                {touchedFields.length > 0 ? `[ ${touchedFields.join(", ")} ]` : "No Touched Fields"}
+                {isDrawerOpen && (touchedFields.length > 0 ? `[ ${touchedFields.join(", ")} ]` : "No Touched Fields")}
             </div>
         </div>
     )

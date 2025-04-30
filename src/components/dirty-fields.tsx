@@ -17,7 +17,7 @@ function DirtyFields() {
                 open={isDrawerOpen}
             />
             <div className="typeContainer__row typeContainer__value">
-                {dirtyFields.length > 0 ? `[ ${dirtyFields.join(", ")} ]` : "No Dirty Fields"}
+                {isDrawerOpen && (dirtyFields.length > 0 ? `[ ${dirtyFields.join(", ")} ]` : "No Dirty Fields")}
             </div>
         </div>
     );
