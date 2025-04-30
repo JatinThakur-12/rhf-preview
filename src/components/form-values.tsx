@@ -1,12 +1,22 @@
+import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import Title from './title';
 
 function FormValues() {
     const { watch } = useFormContext();
     const values = watch();
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+
     return (
         <div className={"typeContainer"}>
-            <div className={"typeContainer__title"}>Values</div>
-            {Object.keys(values).map((key) => {
+            <Title
+                title="Values"
+                clickHandler={() => {
+                    setIsDrawerOpen((prev) => !prev);
+                }}
+                open={isDrawerOpen}
+            />
+            {isDrawerOpen && Object.keys(values).map((key) => {
                 return (
                     <div key={key} className='typeContainer__row' >
                         <div className='typeContainer__label'>

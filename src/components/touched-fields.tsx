@@ -1,12 +1,21 @@
 import { useFormContext } from 'react-hook-form';
+import Title from './title';
+import { useState } from 'react';
 
 function TouchedFields() {
     const { formState } = useFormContext();
     const touchedFields = Object.keys(formState.touchedFields);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
     return (
         <div className='typeContainer' >
-            <div className='typeContainer__title'>Touched Fields</div>
+            <Title
+                title="Touched Fields"
+                clickHandler={() => {
+                    setIsDrawerOpen((prev) => !prev);
+                }}
+                open={isDrawerOpen}
+            />
             <div className="typeContainer__row typeContainer__value">
                 {touchedFields.length > 0 ? `[ ${touchedFields.join(", ")} ]` : "No Touched Fields"}
             </div>

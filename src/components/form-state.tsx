@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { ArrowDown, ArrowUp } from "../assets/icons/arrow";
 import { useState } from "react";
+import Title from "./title";
 
 const EXCLUDED_STATE = [
     "errors",
@@ -16,38 +17,42 @@ function FormState() {
 
     return (
         <div className="typeContainer">
-            <div className="typeContainer__title" onClick={() => { setIsDrawerOpen(prev => !prev) }}>
-                <span>Form State</span>
-                <span>
-                    {isDrawerOpen ? <ArrowUp /> : <ArrowDown />}
-                </span>
-            </div>
-            {isDrawerOpen && Object.getOwnPropertyNames(formState)
-                .sort()
-                .map((key) => {
-                    let typedKey = key as keyof typeof formState;
-                    typedKey === ("name" as keyof typeof formState)
-                        ? "lastModified"
-                        : typedKey;
+            <Title
+                title="Form State"
+                clickHandler={() => {
+                    setIsDrawerOpen((prev) => !prev);
+                }}
+                open={isDrawerOpen}
+            />
+            {isDrawerOpen &&
+                Object.getOwnPropertyNames(formState)
+                    .sort()
+                    .map((key) => {
+                        let typedKey = key as keyof typeof formState;
+                        typedKey === ("name" as keyof typeof formState)
+                            ? "lastModified"
+                            : typedKey;
 
-                    if (EXCLUDED_STATE.includes(key)) {
-                        return null;
-                    }
+                        if (EXCLUDED_STATE.includes(key)) {
+                            return null;
+                        }
 
-                    return (
-                        <div key={typedKey} className="typeContainer__row">
-                            <div className="typeContainer__label">
-                                <span>{typedKey}</span>
-                                <span>:</span>
+                        return (
+                            <div key={typedKey} className="typeContainer__row">
+                                <div className="typeContainer__label">
+                                    <span>{typedKey}</span>
+                                    <span>:</span>
+                                </div>
+                                <div className="typeContainer__value">
+                                    <span>
+                                        {JSON.stringify(
+                                            formState[`${typedKey}`]
+                                        )}
+                                    </span>
+                                </div>
                             </div>
-                            <div className="typeContainer__value">
-                                <span>
-                                    {JSON.stringify(formState[`${typedKey}`])}
-                                </span>
-                            </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
         </div>
     );
 }

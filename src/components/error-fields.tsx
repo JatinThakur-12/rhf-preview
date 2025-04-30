@@ -1,13 +1,23 @@
 import { useFormContext } from 'react-hook-form';
+import Title from './title';
+import { useState } from 'react';
 
 function ErrorFields() {
     const { formState } = useFormContext();
     const errorKeys = Object.keys(formState?.errors);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+
     return (
         <div className='typeContainer'>
-            <div className='typeContainer__title'>Errors</div>
+            <Title
+                title="Errors"
+                clickHandler={() => {
+                    setIsDrawerOpen((prev) => !prev);
+                }}
+                open={isDrawerOpen}
+            />
             {
-                errorKeys?.length > 0 ? errorKeys?.map((key) =>
+                isDrawerOpen && (errorKeys?.length > 0 ? errorKeys?.map((key) =>
                     <div key={key} className='typeContainer__row' >
                         <div className='typeContainer__label'>
                             <span>{key}</span>
@@ -17,8 +27,7 @@ function ErrorFields() {
                             <span>{JSON.stringify(formState.errors[key]?.message)}</span>
                         </div>
                     </div>
-                ) : <div className="typeContainer__row">No errors</div>
-
+                ) : <div className="typeContainer__row">No errors</div>)
             }
         </div>
     )
