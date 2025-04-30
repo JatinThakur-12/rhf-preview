@@ -1,6 +1,6 @@
 {
   "name": "rhf-preview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small utility for viewing react-hook-form values in a quick and easy way",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
