@@ -8,7 +8,6 @@ const RHFPreview = () => {
 
     return (
         <>
-            <div>Running RHF check</div>
             {createPortal(
                 <div style={{ position: 'absolute', bottom: '10px', left: '10px', zIndex: 9999 }}>
                     <button onClick={() => { setIsDrawerOpen(prev => !prev) }}>
