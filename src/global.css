@@ -30,9 +30,18 @@
 
 .typeContainer__title {
     font-size: 14px;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     padding: 0 4px;
     background-color: #696969;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .typeContainer__row {
